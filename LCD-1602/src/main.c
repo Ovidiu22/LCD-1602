@@ -1,40 +1,26 @@
-/**
- * \file
- *
- * \brief Empty user application template
- *
- */
+/*******************************/
+/*** Created by Ovidiu Sabau ***/
+/***	7th January 2022	 ***/
+/*******************************/
 
-/**
- * \mainpage User Application template doxygen documentation
- *
- * \par Empty user application template
- *
- * Bare minimum empty user application template
- *
- * \par Content
- *
- * -# Include the ASF header files (through asf.h)
- * -# "Insert system clock initialization code here" comment
- * -# Minimal main function that starts with a call to board_init()
- * -# "Insert application code here" comment
- *
- */
+/*----------------- Include -------------------*/
+#include "LCD.h"
 
-/*
- * Include header files for all drivers that have been imported from
- * Atmel Software Framework (ASF).
- */
-/*
- * Support and FAQ: visit <a href="https://www.microchip.com/support/">Microchip Support</a>
- */
-#include <asf.h>
-
-int main (void)
+/*-------------- Main function ----------------*/
+int main(void)
 {
-	/* Insert system clock initialization code here (sysclk_init()). */
+	uint8_t temperature = 16; //C
+	uint8_t rel_humidity = 42; //%
+	
+	initLCD();
+//displayLCD_main(row on LCD, "Text 1", number, "Text 2");		
+	displayLCD_main(1, "Hello there!", NONE, "NONE"); _delay_ms(1000);
+	displayLCD_main(1, "CLEAR", NONE, "NONE");
+	
+	_delay_ms(1000);
+	
+	displayLCD_main(1, "Temperature: ", temperature, "C");
+	displayLCD_main(2, "Humidity: ", rel_humidity, "%");
 
-	board_init();
-
-	/* Insert application code here, after the board has been initialized. */
+	return 0;
 }
