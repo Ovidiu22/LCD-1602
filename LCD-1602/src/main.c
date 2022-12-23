@@ -13,14 +13,14 @@ int main(void)
 	uint8_t rel_humidity = 42; //%
 	
 	initLCD();
-//displayLCD_main(row on LCD, "Text 1", number, "Text 2");		
-	displayLCD_main(1, "Hello there!", NONE, "NONE"); _delay_ms(1000);
-	displayLCD_main(1, "CLEAR", NONE, "NONE");
+	//updateLCDScreen(row on LCD, "Text 1", number, "Text 2");		
+	updateLCDScreen(1, "Hello there!", NONE, "NONE"); _delay_ms(1000);
+	updateLCDScreen(1, "CLEAR", NONE, "NONE");
 	
 	_delay_ms(1000);
 	
-	displayLCD_main(1, "Temperature: ", temperature, "C");
-	displayLCD_main(2, "Humidity: ", rel_humidity, "%");
+	updateLCDScreen(1, "Temperature: ", temperature, "C");
+	updateLCDScreen(2, "Humidity: ", rel_humidity, "%");
 
 	return 0;
 }
